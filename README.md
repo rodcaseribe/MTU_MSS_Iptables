@@ -77,13 +77,13 @@ iptables -I FORWARD -p tcp --sport 80 -j ACCEPT
 
 iptables -I FORWARD -p tcp --dport 80 -j ACCEPT
 
-# Desativar fragmentacao da placa LAN e WAN, tso e gso
+# Desativar fragmentacao da placa LAN tso e gso p/ kernel, verificar WAN
 
 ethtool --show-offload  eth5
 
 ethtool -K eth5 tso off
 
-ethtool -K eth0 gso off
+ethtool -K eth5 gso off
 
 # Verificacoes de firewall MSS
 
