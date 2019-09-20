@@ -88,3 +88,5 @@ ethtool -K eth5 gso off
 # Verificacoes de firewall MSS
 
 iptables -L -n -v -t mangle | grep mss
+
+iptables -L -n -v -t filter | grep mss
