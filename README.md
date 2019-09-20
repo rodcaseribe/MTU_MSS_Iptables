@@ -73,6 +73,10 @@ iptables -I FORWARD -p tcp -m multiport --dports 80,443,53,8080 -j ACCEPT
 
 iptables -I FORWARD -p tcp -m multiport --sports 80,443,53,8080 -j ACCEPT
 
+iptables -I FORWARD -p udp -m multiport --sports 80,443,53,8080 -j ACCEPT
+
+iptables -I FORWARD -p udp -m multiport --sports 80,443,53,8080 -j ACCEPT
+
 
 # Desativar fragmentação da placa LAN tso e gso p/ kernel, verificar WAN
 
