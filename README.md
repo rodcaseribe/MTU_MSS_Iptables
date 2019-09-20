@@ -70,6 +70,7 @@ iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -m tcpmss --mss 1400:1600 -j 
 # Teste
 
 iptables -I FORWARD -p tcp -m multiport --dports 80,443,53,8080 -j ACCEPT
+
 iptables -I FORWARD -p tcp -m multiport --sports 80,443,53,8080 -j ACCEPT
 
 
