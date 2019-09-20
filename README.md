@@ -63,7 +63,7 @@ iptables -t mangle -I FORWARD -o ppp+ -p tcp -m tcp --tcp-flags SYN,RST SYN -m t
 
 iptables -t mangle -I FORWARD -i ppp+ -p tcp -m tcp --tcp-flags SYN,RST SYN -m tcpmss --mss 1373:65535 -j TCPMSS --set-mss 1372
 
-# Analizar com Wireshark a fragmentacao de Pacotes, fazendo filtragem por MSS
+# Analizar com Wireshark a fragmentação de Pacotes, fazendo filtragem por MSS
 
 iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -m tcpmss --mss 1400:1600 -j TCPMSS --set-mss 1452 
 
