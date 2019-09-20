@@ -67,15 +67,11 @@ iptables -t mangle -I FORWARD -i ppp+ -p tcp -m tcp --tcp-flags SYN,RST SYN -m t
 
 iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -m tcpmss --mss 1400:1600 -j TCPMSS --set-mss 1452 
 
-# Liberar http e https
+# Teste
 
-iptables -I FORWARD -p tcp --sport 443 -j ACCEPT
+iptables -I FORWARD -p tcp -m multiport --dports 80,443,53,8080 -j ACCEPT
+iptables -I FORWARD -p tcp -m multiport --sports 80,443,53,8080 -j ACCEPT
 
-iptables -I FORWARD -p tcp --dport 443 -j ACCEPT
-
-iptables -I FORWARD -p tcp --sport 80 -j ACCEPT
-
-iptables -I FORWARD -p tcp --dport 80 -j ACCEPT
 
 # Desativar fragmentação da placa LAN tso e gso p/ kernel, verificar WAN
 
