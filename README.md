@@ -53,9 +53,7 @@ user "USUARIO"
 
 usepeerdns
 
-
 # Comandos Iptables
-
 
 iptables -t nat -A POSTROUTING -o $WAN -j MASQUERADE
 
@@ -87,4 +85,6 @@ ethtool -K eth5 tso off
 
 ethtool -K eth0 gso off
 
+# Verificacoes de firewall MSS
 
+iptables -L -n -v -t mangle | grep mss
